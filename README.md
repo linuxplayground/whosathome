@@ -8,15 +8,15 @@
 * arp-scan
 
 ## Usage
-`sudo ./arp &>> arp.log`
+`sudo ./whosathome &>> arp.log`
 
 ## Build
 ``` bash
 $ cd $GOPATH
 $ mkdir -pv src/github.com/linuxplayground/
 $ cd src/github.com/linuxplayground/
-$ git clone https://github.com/linuxplayground/arp.git
+$ git clone https://github.com/linuxplayground/whosathome.git
 $ cd $GOPATH
-$ go build github.com/linuxplayground/arp
+$ go build github.com/linuxplayground/whosathome
 ```
 
