@@ -1,4 +1,4 @@
-# Arp scanner written in golang.
+# Whosathome logger via arp-scan written in golang
 
 * The mac addresses you are interessted in are hardcoded into the script.
 * The constant, DECAY is for how long you want to wait before marking someone as OFFLINE.
