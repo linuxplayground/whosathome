@@ -6,7 +6,7 @@ import (
     "os"
     "os/exec"
     "regexp"
-	"strconv"
+    "strconv"
     "time"
 )
 
@@ -46,7 +46,12 @@ func getTable() string {
 }
 
 func out(m string, entry Person) {
-	fmt.Printf("{\"timestamp\":\"%s\", \"mac\":\"%s\", \"name\":\"%s\", \"online\":%s}\n", entry.stamp.String(), m, entry.name, strconv.FormatBool(entry.online))
+	fmt.Printf("{\"timestamp\":\"%s\", \"mac\":\"%s\", \"name\":\"%s\", \"online\":%s}\n", 
+                   entry.stamp.String(), 
+                   m, 
+                   entry.name, 
+                   strconv.FormatBool(entry.online)
+        )
 }
 
 func main() {
@@ -72,11 +77,11 @@ func main() {
             if person,present := people[mac]; present {
                 //Is the person not in the arplog?
                 if _,logged := arplog[mac]; !logged {
-                    person.online = true
-                    person.stamp = time.Now()
-					arplog[mac] = person
-					fmt.Printf("Added %s to arplog.\n", person.name)
-					out(mac, person)
+                        person.online = true
+                        person.stamp = time.Now()
+                        arplog[mac] = person
+                        fmt.Printf("Added %s to arplog.\n", person.name)
+                        out(mac, person)
                 }
 				//Is the person already in the arplog
 				if _,logged := arplog[mac]; logged {
@@ -98,11 +103,11 @@ func main() {
                     if entry.online {
                         duration := time.Since(entry.stamp)
                         if duration.Minutes() > float64(DECAY) {
-							fmt.Printf("Marking %s as offline due to no arp response for more than %d minutes.\n", entry.name, DECAY)
-                            entry.online = false
-                            entry.stamp = time.Now()
-                            arplog[m] = entry
-							out(m, entry)
+                                fmt.Printf("Marking %s as offline due to no arp response for more than %d minutes.\n", entry.name, DECAY)
+                                entry.online = false
+                                entry.stamp = time.Now()
+                                arplog[m] = entry
+                                out(m, entry)
                         }
                     }
                 }
