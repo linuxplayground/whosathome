@@ -46,11 +46,11 @@ func getTable() string {
 }
 
 func out(m string, entry Person) {
-	fmt.Printf("{\"timestamp\":\"%s\", \"mac\":\"%s\", \"name\":\"%s\", \"online\":%s}\n", 
-                   entry.stamp.String(), 
-                   m, 
-                   entry.name, 
-                   strconv.FormatBool(entry.online)
+	fmt.Printf("{\"timestamp\":\"%s\", \"mac\":\"%s\", \"name\":\"%s\", \"online\":%s}\n",
+                   entry.stamp.String(),
+                   m,
+                   entry.name,
+                   strconv.FormatBool(entry.online),
         )
 }
 
